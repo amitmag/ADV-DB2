@@ -2,10 +2,11 @@ package com.tsystems.casou.hibernate;
 
 import java.time.LocalDate;
 
+import hib.Assignment;
+
 public class Main {
 
-	public static void Main(String[] args) {
-		LocalDate nBeforeToday = LocalDate.now().minusDays(5);
-		System.out.println("a");
+	public static void main(String[] args) {
+		Assignment.insertUser("amir", "1234", "amir", "levy", "23", "10", "1990");
 	}
 }

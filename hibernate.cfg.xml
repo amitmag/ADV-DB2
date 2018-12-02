@@ -9,6 +9,6 @@
         <property name="hibernate.connection.url">jdbc:oracle:thin:@ora1.ise.bgu.ac.il:1521/ORACLE</property>
         <property name="hibernate.connection.username">amitmag</property>
         <property name="hibernate.default_schema">AMITMAG</property>
-        <property name="hibernate.dialect">Oracle10g</property>
+        <property name="hibernate.dialect">Oracle9g</property>
     </session-factory>
 </hibernate-configuration>

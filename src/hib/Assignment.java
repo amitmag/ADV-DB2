@@ -136,7 +136,15 @@ public class Assignment {
 	
 	public static int getNumberOfRegistredUsers(int n) {
 		LocalDate nBeforeToday = LocalDate.now().minusDays(n);
-		return 0;
+		List<Entry<String, Date>> userHistory = new ArrayList<>();
+		String query = "FROM Users * where REGISTRATION_DATE>=" + nBeforeToday;
+		Session session = HibernateUtil.currentSession();
+		@SuppressWarnings("unchecked")
+		List<Users> users = (List<Users>)session.createQuery(query).list();
+		if(users.size() > 0)
+			return users.size();
+		else
+			return 0;
 	}
 	
 	// TODO: Check how to sort the results!

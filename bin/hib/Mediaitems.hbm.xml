@@ -1,0 +1,39 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Dec 2, 2018 6:50:28 PM by Hibernate Tools 4.3.5.Final -->
+<hibernate-mapping>
+    <class name="hib.Mediaitems" table="MEDIAITEMS" optimistic-lock="version">
+        <id name="mid" type="int">
+            <column name="MID" precision="9" scale="0" />
+            <generator class="assigned" />
+        </id>
+        <property name="title" type="string">
+            <column name="TITLE" length="200" />
+        </property>
+        <property name="prodYear" type="java.lang.Short">
+            <column name="PROD_YEAR" precision="4" scale="0" />
+        </property>
+        <property name="titleLength" type="java.lang.Short">
+            <column name="TITLE_LENGTH" precision="4" scale="0" />
+        </property>
+        <set name="similaritiesForMid2" table="SIMILARITY" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="MID2" precision="9" scale="0" not-null="true" />
+            </key>
+            <one-to-many class="hib.Similarity" />
+        </set>
+        <set name="similaritiesForMid1" table="SIMILARITY" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="MID1" precision="9" scale="0" not-null="true" />
+            </key>
+            <one-to-many class="hib.Similarity" />
+        </set>
+        <set name="histories" table="HISTORY" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="MID" precision="9" scale="0" not-null="true" />
+            </key>
+            <one-to-many class="hib.History" />
+        </set>
+    </class>
+</hibernate-mapping>

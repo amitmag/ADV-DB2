@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-reverse-engineering PUBLIC "-//Hibernate/Hibernate Reverse Engineering DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-reverse-engineering-3.0.dtd" >
+
+<hibernate-reverse-engineering>
+  <table-filter match-name="ADMINISTRATORS"/>
+  <table-filter match-name="HISTORY"/>
+  <table-filter match-name="LOGINLOG"/>
+  <table-filter match-name="MEDIAITEMS"/>
+  <table-filter match-name="SIMILARITY"/>
+  <table-filter match-name="USERS"/>
+</hibernate-reverse-engineering>

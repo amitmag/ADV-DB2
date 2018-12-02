@@ -1,0 +1,44 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+                                   "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Dec 2, 2018 6:50:28 PM by Hibernate Tools 4.3.5.Final -->
+<hibernate-mapping default-access="field" default-lazy="false">
+ <class lazy="true" name="hib.Users" table="USERS">
+  <id name="userid" type="int">
+   <column name="USERID" precision="9" scale="0"/>
+   <generator class="increment"/>
+  </id>
+  <property generated="never" lazy="false" name="username" type="string">
+   <column length="150" name="USERNAME"/>
+  </property>
+  <property generated="never" lazy="false" name="password" type="string">
+   <column length="150" name="PASSWORD"/>
+  </property>
+  <property generated="never" lazy="false" name="firstName" type="string">
+   <column length="150" name="FIRST_NAME"/>
+  </property>
+  <property generated="never" lazy="false" name="lastName" type="string">
+   <column length="150" name="LAST_NAME"/>
+  </property>
+  <property generated="never" lazy="false" name="dateOfBirth" type="serializable">
+   <column name="DATE_OF_BIRTH"/>
+  </property>
+  <property generated="never" lazy="false" name="registrationDate" type="serializable">
+   <column name="REGISTRATION_DATE"/>
+  </property>
+  <set fetch="select" inverse="true" lazy="true" name="histories"
+   sort="unsorted" table="HISTORY">
+   <key>
+    <column name="USERID" not-null="true" precision="9" scale="0"/>
+   </key>
+   <one-to-many class="hib.History"/>
+  </set>
+  <set fetch="select" inverse="true" lazy="true" name="loginlogs"
+   sort="unsorted" table="LOGINLOG">
+   <key>
+    <column name="USERID" not-null="true" precision="9" scale="0"/>
+   </key>
+   <one-to-many class="hib.Loginlog"/>
+  </set>
+ </class>
+</hibernate-mapping>
